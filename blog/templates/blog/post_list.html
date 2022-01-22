@@ -5,7 +5,14 @@
     <title>Blog dla programistow</title>
 </head>
 <body>
-<h1>Pierwszy header</h1>
-<p>Elo elo 3 2 0</p>
+    <h1>Pierwszy header</h1>
+    <p>Elo elo 3 2 0</p>
+    {% for post in posts %}
+    <div>
+        <p>opubilkowany post: {{ post.publish_date }} </p>
+        <h2><a href="" >{{ post.title }}</a></h2>
+        <em>{{post.text|linebreaksbr }}</em>
+    </div>
+    {% endfor %}
 </body>
 </html>
