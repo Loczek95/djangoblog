@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog dla programistow</title>
-</head>
-<body>
-    <h1>Pierwszy header</h1>
-    <p>Elo elo 3 2 0</p>
+{% extends 'blog/base.html' %}
+{% block content %}
     {% for post in posts %}
-    <div>
-        <p>opubilkowany post: {{ post.publish_date }} </p>
-        <h2><a href="" >{{ post.title }}</a></h2>
-        <em>{{post.text|linebreaksbr }}</em>
-    </div>
+        <div class="post">
+            <div class="data">
+                <p>opubilkowany post: {{ post.publish_date }} </p>
+            </div>
+            <h2><a href=" {% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h2>
+            <em>{{post.text|linebreaksbr }}</em>
+        </div>
+
     {% endfor %}
-</body>
-</html>
+{% endblock %}
